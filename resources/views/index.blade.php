@@ -69,6 +69,8 @@
 			sat = $("#sat").is(":checked") ? "Sat" : "",
 			sun = $("#sun").is(":checked") ? "Sun" : "";
 
+
+	    $('button[type="submit"]').prop('disabled', true);
 	    $.ajax({
 	        type:'POST',
 	        url: "/insert",
@@ -82,6 +84,7 @@
 	    }).done(function(result){
 	    	alert("Successfully Save");
 	    	index();
+	    	$('button[type="submit"]').prop('disabled', false);
 	   	}); 
 	};
 
@@ -104,8 +107,6 @@
    			});
 			$("#eventList").html(row);
 	   	});
-
-		$('#form')[0].reset();
 	}
 </script> 
 </body>
